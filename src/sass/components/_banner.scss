@@ -1,0 +1,111 @@
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.banner {
+	min-height: 90vh;
+	display: flex;
+	align-items: center;
+
+	@include respond(tab-land) {
+		min-height: 40vh;
+	}
+
+	@include respond(tab-port) {
+		margin-bottom: 10rem;
+	}
+
+	&-content {
+		@include respond(tab-port) {
+			flex-direction: column-reverse;
+		}
+	}
+	&-title {
+		&--1 {
+			color: $orange-1;
+			font-size: 4rem;
+			margin-bottom: 3rem;
+		}
+
+		&--2 {
+			font-family: "Playfair Display", serif;
+			font-size: 9rem;
+			margin-bottom: 3rem;
+
+			@include respond(tab-land) {
+				font-size: 8rem;
+			}
+
+			@include respond(phone) {
+				font-size: 6rem;
+			}
+		}
+
+		&--3 {
+			font-size: 2.5rem;
+		}
+	}
+
+	&-image {
+		&--1 {
+			// mask-image: url(https://svgshare.com/i/JFM.svg);
+			mask-image: url("../images/banner1.svg");
+			// -webkit-mask-image: url(https://svgshare.com/i/JFM.svg);
+			-webkit-mask-position: center center;
+			mask-position: center center;
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-size: cover;
+			mask-size: cover;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			will-change: transform;
+		}
+	}
+}
+
+.draw {
+	position: relative;
+	padding: 3px 20px;
+	color: transparent;
+
+	&:before {
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+		left: 0%;
+		right: 100%;
+		background-color: $background-2;
+		content: "";
+	}
+	&.-do {
+		animation: show 1.5s forwards;
+		&:before {
+			animation: intro 1.5s ease-in-out;
+		}
+	}
+
+	//I have added an extra 0.5s on top of document ready because I kept getting it slightly juttering
+	@for $i from 1 through 8 {
+		//Add the class '-wave' to make each line add .25s delay per line
+		&.-wave:nth-child(#{$i}) {
+			&,
+			&::before {
+				animation-delay: #{0.5 + $i/4}s;
+			}
+		}
+	}
+	@for $i from 1 through 30 {
+		//add the attribute 'delay="1"' for a 1 second delay
+		&[delay="#{$i/10}"] {
+			&,
+			&::before {
+				animation-delay: #{0.5 + $i/10}s;
+			}
+		}
+	}
+}

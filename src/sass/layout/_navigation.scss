@@ -1,0 +1,162 @@
+$distance: -3px;
+
+.navigation {
+    position: sticky;
+    top: 0;
+    background: $background-1;
+    z-index: 999;
+
+    .logo-wrapper {
+        @include respond(phone) {
+            margin: 0 auto;
+        }
+    }
+
+    .logo {
+        $size: 8rem;
+        width: $size;
+        height: $size;
+        object-fit: cover;
+    }
+
+    .menu {
+        width: 50%;
+        display: flex;
+        margin-left: auto;
+        justify-content: space-around;
+        padding: 1rem;
+
+        @include respond(phone) {
+            width: 100%;
+        }
+
+        &-item {
+            &__link {
+                position: relative;
+                display: block;
+                background: $background-1;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+                &:hover::before,
+                &:hover::after,
+                &:hover > p::before,
+                &:hover > p::after {
+                    width: calc(100% / 2);
+                    height: calc(100% / 2);
+                }
+
+                &::before,
+                &::after,
+                & > p::before,
+                & > p::after {
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background-color: $orange-1;
+                    transition: 0.5s;
+                    z-index: -1;
+                }
+
+                &::before {
+                    top: $distance;
+                    left: $distance;
+                }
+
+                &::after {
+                    top: $distance;
+                    right: $distance;
+                }
+
+                p {
+                    transition: 0.4s;
+                    position: relative;
+                    padding: 0.6rem;
+
+                    &::before {
+                        bottom: $distance;
+                        left: $distance;
+                    }
+
+                    &::after {
+                        bottom: $distance;
+                        right: $distance;
+                    }
+                }
+
+                &:hover p {
+                    color: $orange-1;
+                }
+            }
+        }
+    }
+}
+
+.navigationSmall {
+    &-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        z-index: 10;
+
+        ul {
+            padding: 25px;
+            position: absolute;
+            top: 100px;
+            width: 230px;
+        }
+
+        li {
+            list-style: none;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 5rem;
+            font-family: "Playfair Display", serif !important;
+
+            a {
+                color: $background-1;
+            }
+        }
+    }
+
+    &-mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.4);
+        z-index: 9;
+    }
+
+    &-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        height: 100%;
+    }
+
+    &__toggleBtn {
+        outline: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 18px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: transparent;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

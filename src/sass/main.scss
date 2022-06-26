@@ -1,0 +1,33 @@
+@import "abstracts/function";
+@import "abstracts/mixin";
+@import "abstracts/variables";
+
+@import "base/animation";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "layout/navigation";
+@import "layout/grid";
+@import "layout/footer";
+
+@import "components/banner";
+@import "components/introduction";
+@import "components/skillbar";
+@import "components/aboutme";
+@import "components/timeline";
+// @import "components/my-projects";
+// @import "components/my-projectsv1";
+@import "components/my-projects-v2";
+@import "components/contact";
+
+@import "components/service-card";
+@import "components/award-card";
+@import "components/timelinecard1";
+@import "components/timelinecard2";
+@import "components/project-card";
+@import "components/contact-card";
+@import "components/custom-cursor";
+@import "components/scrollbar";
+
+@import "components/buttons";
