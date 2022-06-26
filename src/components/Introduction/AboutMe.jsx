@@ -14,6 +14,7 @@ export default class AboutMe extends Component {
                                 src={require("../../images/img2.jpg")}
                                 alt="aboutme"
                                 className="lazyload"
+                                loading="lazy"
                             />
                         </div>
                     </div>
@@ -36,8 +37,10 @@ export default class AboutMe extends Component {
                         </div>
 
                         <a
-                            href="https://www.topcv.vn/xem-cv/83caab718b28235fca21ddd959826227"
+                            href={process.env.REACT_APP_MY_CV_URL}
                             className="button"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             My CV
                         </a>

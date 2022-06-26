@@ -42,8 +42,11 @@ const TimeLine = () => {
                         <div className="timeline-cards">
                             {data &&
                                 data.length > 0 &&
-                                data.map((item: any) => (
-                                    <TimeLineCard1 data={item} />
+                                data.map((item: any, idx: number) => (
+                                    <TimeLineCard1
+                                        data={item}
+                                        key={`timeline-card1-${idx}`}
+                                    />
                                 ))}
                         </div>
                     </div>
@@ -62,8 +65,11 @@ const TimeLine = () => {
                         >
                             {data &&
                                 data.length > 0 &&
-                                data.map((item: any) => (
-                                    <TimelineCard2 data={item} />
+                                data.map((item: any, idx: number) => (
+                                    <TimelineCard2
+                                        data={item}
+                                        key={`timeline-card2-${idx}`}
+                                    />
                                 ))}
                         </Slider>
                     </div>

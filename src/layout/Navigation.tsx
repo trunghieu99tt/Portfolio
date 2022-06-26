@@ -22,6 +22,7 @@ const Navigation = () => {
                             src={require("../images/logo.png")}
                             alt="Logo"
                             className="logo"
+                            loading="lazy"
                         />
                     </div>
 

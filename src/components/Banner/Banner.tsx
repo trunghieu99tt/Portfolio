@@ -28,6 +28,7 @@ const Banner = () => {
                             src={require("../../images/img1.jpg")}
                             alt="Me 1"
                             className="banner-image--1 lazyload"
+                            loading="lazy"
                         />
                     </div>
                 </div>

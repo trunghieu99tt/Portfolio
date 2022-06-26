@@ -10,6 +10,7 @@ const AwardCard = (props) => {
                         src={image}
                         alt={title}
                         className="award-card__image lazyload"
+                        loading="lazy"
                     />
                 </div>
             )}

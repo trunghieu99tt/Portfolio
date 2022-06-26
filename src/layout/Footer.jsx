@@ -10,6 +10,7 @@ const Footer = () => {
                             src={require("../images/logo.png")}
                             alt=""
                             className="footer-logo lazyload"
+                            loading="lazy"
                         />
                     </div>
                     <div className="d-flex align-items-center justify-content-cente footer-link-heading-container">

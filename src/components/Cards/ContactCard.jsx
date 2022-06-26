@@ -27,7 +27,9 @@ const ContactCard = (props) => {
 
             <div className="contact-card__icon">
                 <i
-                    class={`${name !== "envelope" ? "fab" : "fas"} fa-${name}`}
+                    className={`${
+                        name !== "envelope" ? "fab" : "fas"
+                    } fa-${name}`}
                 ></i>
             </div>
 

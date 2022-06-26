@@ -1,27 +1,18 @@
-/* eslint-disable no-restricted-globals */
-import React from "react";
-
-// talons
-import { useWindowSize } from "./hooks/useWindowsize";
-
-// layout
-import Footer from "./layout/Footer";
-import NavigationSmall from "./layout/NavigationSmall";
-import Navigation from "./layout/Navigation";
-
-// components
-import ScrollBar from "./components/ScrollBar/ScrollBar";
-import Banner from "./components/Banner/Banner";
-import Timeline from "./components/Timeline";
-import MyProject from "./components/MyProject";
-import Introduction from "./components/Introduction";
-import Contact from "./components/Contact/Contact";
-import ChangeCursor from "./components/ChangeCursor/ChangeCursor";
-
-// styles
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 import "swiper/css/swiper.css";
+import Banner from "./components/Banner/Banner";
+import ChangeCursor from "./components/ChangeCursor/ChangeCursor";
+import Contact from "./components/Contact/Contact";
+import Introduction from "./components/Introduction";
+import MyProject from "./components/MyProject";
+import ScrollBar from "./components/ScrollBar/ScrollBar";
+import Timeline from "./components/Timeline";
 import "./css/main.min.css";
+import { useWindowSize } from "./hooks/useWindowsize";
+import Footer from "./layout/Footer";
+import Navigation from "./layout/Navigation";
+import NavigationSmall from "./layout/NavigationSmall";
 
 const App = () => {
     const size = useWindowSize();

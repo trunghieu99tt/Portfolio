@@ -55,7 +55,7 @@ const Image = ({
         return mobileWidth;
     };
 
-    return <img className={className} alt={alt} src={src} />;
+    return <img className={className} alt={alt} src={src} loading="lazy" />;
 };
 
 export default Image;

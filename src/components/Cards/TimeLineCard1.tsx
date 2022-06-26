@@ -13,6 +13,7 @@ const TimeLineCard1 = ({ data }: Props) => {
                     src={image}
                     alt={companyName}
                     className="timeline-card1__image"
+                    loading="lazy"
                 />
             </div>
 

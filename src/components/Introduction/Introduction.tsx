@@ -45,6 +45,7 @@ const Introduction = () => {
                                         }
                                     )}
                                     onClick={() => setActiveIdx(idx)}
+                                    key={`introduction-item-${idx}`}
                                 >
                                     <p className="introduction__heading-item__title">
                                         {name}

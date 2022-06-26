@@ -46,6 +46,7 @@ const MyProjectsv1 = () => {
 
     const getProjects = useCallback(async () => {
         const response = await fetchData();
+        console.log("response", response);
         setData(response);
     }, [fetchData]);
 
@@ -70,13 +71,17 @@ const MyProjectsv1 = () => {
                 <Swiper {...params}>
                     {data &&
                         data.length > 0 &&
-                        data.map((item: any) => (
-                            <div className={`project-card`}>
+                        data.map((item: any, idx: number) => (
+                            <div
+                                className={`project-card`}
+                                key={`project-card-${idx}`}
+                            >
                                 <div className="project-card__image-container">
                                     <img
                                         src={item.image}
                                         alt={item.name}
                                         className="project-card__image lazyload"
+                                        loading="lazy"
                                     />
                                 </div>
 
