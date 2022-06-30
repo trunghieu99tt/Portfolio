@@ -4,8 +4,8 @@ on:
     branches:
       - master
 jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
@@ -16,13 +16,22 @@ jobs:
       with:
         node-version: '14'
       
+    - name: Clean cache
+      run: npm cache clean -f
+      
+    - name: Delete node_modules
+      run: rm -rf node_modules
+      
+    - name: remove package-lock.json
+      run: rm -rf package-lock.json
+      
     - name: 🔨 Build Project
       run: |
         npm install
         npm run build
-        
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         ftp-server: ${{ secrets.TINO_FTP_SERVER }}
         ftp-username: ${{ secrets.TINO_FTP_USERNAME }}
