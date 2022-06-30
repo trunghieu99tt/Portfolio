@@ -33,7 +33,7 @@ const TimeLine = () => {
                     </div>
                     <div className="text-wrapper">
                         <h2 className="section-heading">
-                            Education, Experience And Events
+                            Education, Experiences And Events
                         </h2>
                     </div>
                 </div>
