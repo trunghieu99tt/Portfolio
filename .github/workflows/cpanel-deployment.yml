@@ -35,8 +35,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        ftp-server: ${{ secrets.TINO_FTP_SERVER }}
-        ftp-username: ${{ secrets.TINO_FTP_USERNAME }}
-        ftp-password: ${{ secrets.TINO_FTP_PASSWORD }}
+        server: ${{ secrets.TINO_FTP_SERVER }}
+        username: ${{ secrets.TINO_FTP_USERNAME }}
+        password: ${{ secrets.TINO_FTP_PASSWORD }}
         protocol: ftps
         port: 21 
