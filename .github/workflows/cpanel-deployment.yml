@@ -40,4 +40,4 @@ jobs:
         password: ${{ secrets.TINO_FTP_PASSWORD }}
         protocol: ftps
         port: 21 
-        local_dir: build/
+        local-dir: build/
