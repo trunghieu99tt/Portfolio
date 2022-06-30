@@ -17,3 +17,5 @@ jobs:
         ftp-server: ${{ secrets.TINO_FTP_SERVER }}
         ftp-username: ${{ secrets.TINO_FTP_USERNAME }}
         ftp-password: ${{ secrets.TINO_FTP_PASSWORD }}
+        protocol: ftps
+        port: 21 
