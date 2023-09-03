@@ -15,10 +15,10 @@ const Banner = () => {
                                     Hello, I'm{" "}
                                 </h3>
                                 <h1 className="banner-title--2 draw -wave -do">
-                                    Nguyen Trung Hieu
+                                    Trung Hieu (Ricky) Nguyen
                                 </h1>
                                 <p className="banner-title--3 draw -wave -do">
-                                    Web Developer
+                                    I'm a Software Engineer
                                 </p>
                             </div>
                         </div>

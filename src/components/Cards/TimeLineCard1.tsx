@@ -19,16 +19,15 @@ const TimeLineCard1 = ({ data }: Props) => {
 
             <div className="timeline-card1__content">
                 <div className="text-wrapper">
-                    <h4 className="timeline-card1__title">
-                        {timeStart} - {timeEnd !== "" ? timeEnd : "Now"} (
-                        {title})
-                    </h4>
-                </div>
-
-                <div className="text-wrapper">
                     <h2 className="timeline-card1__companyName">
                         {companyName}
                     </h2>
+                </div>
+                <div className="text-wrapper">
+                    <p className="timeline-card1__timeRange">
+                        {timeStart} - {timeEnd !== "" ? timeEnd : "Now"}
+                    </p>
+                    <h4 className="timeline-card1__title">{title}</h4>
                 </div>
             </div>
         </div>

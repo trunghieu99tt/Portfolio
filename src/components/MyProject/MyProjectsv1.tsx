@@ -63,7 +63,7 @@ const MyProjectsv1 = () => {
                     </div>
                     <div className="text-wrapper">
                         <h2 className="section-heading">
-                            All Projects I've made
+                            All Projects I've made and contributed to
                         </h2>
                     </div>
                 </div>

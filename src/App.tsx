@@ -8,7 +8,7 @@ import Introduction from "./components/Introduction";
 import MyProject from "./components/MyProject";
 import ScrollBar from "./components/ScrollBar/ScrollBar";
 import Timeline from "./components/Timeline";
-import "./css/main.min.css";
+import "./sass/main.css";
 import { useWindowSize } from "./hooks/useWindowsize";
 import Footer from "./layout/Footer";
 import Navigation from "./layout/Navigation";

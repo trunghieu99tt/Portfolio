@@ -16,13 +16,16 @@
 		font-family: open sans, Sans-serif;
 		font-size: 16px;
 		color: rgba(255, 255, 255, 0.65);
-		margin: 0 0 20px;
 		padding: 0;
 		transition-duration: 0.3s;
 
 		&:hover {
 			color: $orange-2;
 		}
+	}
+	
+	&__timeRange{
+		font-size: 1.3rem;
 	}
 
 	&__companyName {
