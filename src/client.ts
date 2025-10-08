@@ -5,7 +5,7 @@ const headers = {
     "Content-Type": "application/json",
 };
 const client = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASEURL,
+    baseURL: process.env.FIREBASE_DATABASEURL,
     headers,
 });
 

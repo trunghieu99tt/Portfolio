@@ -21,8 +21,8 @@ yarn install
 Create a `.env.local` file in the root directory:
 
 ```env
-NEXT_PUBLIC_FIREBASE_DATABASEURL=https://your-firebase-project.firebaseio.com/
-NEXT_PUBLIC_MY_CV_URL=https://your-cv-url.com/cv.pdf
+FIREBASE_DATABASEURL=https://your-firebase-project.firebaseio.com/
+MY_CV_URL=https://your-cv-url.com/cv.pdf
 ```
 
 > **Note:** If you don't have a Firebase database, you can skip this for now. The site will work but won't load dynamic data.
@@ -46,7 +46,7 @@ Visit [http://localhost:3000](http://localhost:3000) 🎉
 **Solution:** 
 1. Ensure your `.env.local` file is in the root directory
 2. Restart the development server after creating/editing `.env.local`
-3. Make sure variables start with `NEXT_PUBLIC_`
+3. Make sure variables start with ``
 
 ### Issue: Images not loading
 **Solution:** Check that images exist in `src/images/` directory

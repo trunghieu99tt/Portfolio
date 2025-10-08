@@ -29,9 +29,9 @@ All client-side components now include `'use client'` directive:
 - Added Next.js 14
 
 ### 4. Environment Variables
-All environment variables must be prefixed with `NEXT_PUBLIC_` to be accessible in the browser:
-- `REACT_APP_FIREBASE_DATABASEURL` → `NEXT_PUBLIC_FIREBASE_DATABASEURL`
-- `REACT_APP_MY_CV_URL` → `NEXT_PUBLIC_MY_CV_URL`
+All environment variables must be prefixed with `` to be accessible in the browser:
+- `REACT_APP_FIREBASE_DATABASEURL` → `FIREBASE_DATABASEURL`
+- `REACT_APP_MY_CV_URL` → `MY_CV_URL`
 
 Create a `.env.local` file with your environment variables (see `.env.example`).
 

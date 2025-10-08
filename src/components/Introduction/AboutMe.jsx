@@ -36,7 +36,7 @@ export default function AboutMe() {
                     </div>
 
                     <a
-                        href={process.env.NEXT_PUBLIC_MY_CV_URL}
+                        href={process.env.MY_CV_URL}
                         className="button"
                         target="_blank"
                         rel="noopener noreferrer"

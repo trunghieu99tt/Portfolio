@@ -39,8 +39,8 @@ yarn install
 
 3. Create a `.env.local` file in the root directory and add your environment variables:
 ```env
-NEXT_PUBLIC_FIREBASE_DATABASEURL=your_firebase_database_url_here
-NEXT_PUBLIC_MY_CV_URL=your_cv_url_here
+FIREBASE_DATABASEURL=your_firebase_database_url_here
+MY_CV_URL=your_cv_url_here
 ```
 
 ### Development
@@ -104,7 +104,7 @@ This project was originally built with Create React App and has been successfull
 
 - Migrated to Next.js App Router architecture
 - Updated all components with 'use client' directive where needed
-- Migrated environment variables to `NEXT_PUBLIC_` prefix
+- Migrated environment variables to `` prefix
 - Updated image imports to use Next.js Image optimization where applicable
 - Migrated from `react-particles-js` patterns to modern alternatives
 - Updated Framer Motion APIs to latest versions
