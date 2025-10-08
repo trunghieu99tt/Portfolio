@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useState } from "react";
 import { SCREEN_MOBILE, SCREEN_TABLET } from "../../variables";
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useState } from "react";
 import Swiper from "react-id-swiper";
 import { useData } from "../../talons/useData";

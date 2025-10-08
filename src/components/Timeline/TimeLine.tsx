@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useState } from "react";
 import Slider from "react-slick";
 
@@ -24,6 +26,9 @@ const TimeLine = () => {
         getTimeline();
     }, [getTimeline]);
 
+    const sortedData = data?.sort((a: any, b: any) => a.order - b.order);
+
+
     return (
         <section className="timeline" id="timeline">
             <div className="container">
@@ -40,9 +45,9 @@ const TimeLine = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="timeline-cards">
-                            {data &&
-                                data.length > 0 &&
-                                data.map((item: any, idx: number) => (
+                            {sortedData &&
+                                sortedData.length > 0 &&
+                                sortedData.map((item: any, idx: number) => (
                                     <TimeLineCard1
                                         data={item}
                                         key={`timeline-card1-${idx}`}
@@ -60,12 +65,12 @@ const TimeLine = () => {
                             centerMode={false}
                             infinite={true}
                             speed={1000}
-                            autoplay={true}
-                            // nextArrow={`<button class = "timeline-next"></button>`}
+                        // autoplay={true}
+                        // nextArrow={`<button class = "timeline-next"></button>`}
                         >
-                            {data &&
-                                data.length > 0 &&
-                                data.map((item: any, idx: number) => (
+                            {sortedData &&
+                                sortedData.length > 0 &&
+                                sortedData.map((item: any, idx: number) => (
                                     <TimelineCard2
                                         data={item}
                                         key={`timeline-card2-${idx}`}

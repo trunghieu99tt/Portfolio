@@ -1,72 +1,151 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Nguyen Trung Hieu (Elliot) - Portfolio
 
-## Available Scripts
+This is a personal portfolio website showcasing my work, skills, and experiences as a Software Engineer.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+This project has been migrated from Create React App to **Next.js 14** with the following technologies:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **SCSS/Sass** - Styling with preprocessor
+- **Framer Motion** - Animations
+- **GSAP** - Advanced animations
+- **Bootstrap 5** - UI framework
+- **React Slick** - Carousel components
+- **Axios** - HTTP client
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 18.0 or higher
+- npm 8.0 or higher
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/Rikikudo.git
+cd Rikikudo
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Create a `.env.local` file in the root directory and add your environment variables:
+```env
+NEXT_PUBLIC_FIREBASE_DATABASEURL=your_firebase_database_url_here
+NEXT_PUBLIC_MY_CV_URL=your_cv_url_here
+```
 
-### `npm run eject`
+### Development
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run the development server:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run dev
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Building for Production
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Start the production server:
+
+```bash
+npm start
+```
+
+### Linting
+
+Run ESLint to check for code quality issues:
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+.
+├── app/                  # Next.js app directory
+│   ├── layout.tsx       # Root layout
+│   ├── page.tsx         # Home page
+│   └── globals.css      # Global styles
+├── src/
+│   ├── components/      # React components
+│   ├── hooks/           # Custom React hooks
+│   ├── layout/          # Layout components
+│   ├── sass/            # SCSS styles
+│   ├── types/           # TypeScript type definitions
+│   ├── utils/           # Utility functions
+│   ├── data/            # Static data
+│   └── talons/          # Custom hooks for data fetching
+├── public/              # Static assets
+├── next.config.js       # Next.js configuration
+├── tsconfig.json        # TypeScript configuration
+└── package.json         # Dependencies and scripts
+```
+
+## Migration from CRA to Next.js
+
+This project was originally built with Create React App and has been successfully migrated to Next.js 14. Key changes include:
+
+- Migrated to Next.js App Router architecture
+- Updated all components with 'use client' directive where needed
+- Migrated environment variables to `NEXT_PUBLIC_` prefix
+- Updated image imports to use Next.js Image optimization where applicable
+- Migrated from `react-particles-js` patterns to modern alternatives
+- Updated Framer Motion APIs to latest versions
+
+## Deployment
+
+The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new):
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+For other deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment).
+
+## Docker
+
+You can also run this application using Docker:
+
+```bash
+docker build -t rikikudo-portfolio .
+docker run -p 3000:3000 rikikudo-portfolio
+```
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To learn more about the technologies used in this project:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://reactjs.org/)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Framer Motion Documentation](https://www.framer.com/motion/)
 
-### Code Splitting
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+This project is open source and available under the [MIT License](LICENSE).
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-### Or you can pull image from dockerhub and run locally without cloning code or run
-docker run -it -p 3000:3000/tcp rikikudo/rikikudo-intro:lastest
-This script will pull my lastest image and run in port 3000. (Open localhost:3000)
+- GitHub: [@Rikikudo](https://github.com/Rikikudo)
+- Facebook: [Rikikudo99](https://www.facebook.com/rikikudo99)

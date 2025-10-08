@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useCallback, useEffect, useState } from "react";
-import { AnimateSharedLayout } from "framer-motion";
+import { LayoutGroup } from "framer-motion";
 
 // talons
 import { useData } from "../../talons/useData";
@@ -36,7 +38,7 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <AnimateSharedLayout>
+                <LayoutGroup>
                     <ul className="contact__content grid grid--3">
                         {data &&
                             data.length > 0 &&
@@ -49,7 +51,7 @@ const Contact = () => {
                                 />
                             ))}
                     </ul>
-                </AnimateSharedLayout>
+                </LayoutGroup>
             </div>
         </section>
     );

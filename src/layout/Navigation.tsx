@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import { menuData } from "./navigation.data";
 
@@ -19,10 +21,9 @@ const Navigation = () => {
                 <div className="row align-items-center">
                     <div className="logo-wrapper">
                         <img
-                            src={require("../images/logo.png")}
+                            src="/images/logo.png"
                             alt="Logo"
                             className="logo"
-                            loading="lazy"
                         />
                     </div>
 

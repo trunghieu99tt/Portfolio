@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import { MenuItem } from "./MenuItem";

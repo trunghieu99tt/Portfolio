@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
-import { TweenMax } from "gsap";
+import { gsap } from "gsap";
 import "./style.css";
 
 const ChangeCursor = () => {
@@ -14,20 +16,21 @@ const ChangeCursor = () => {
             mouseX = 0,
             mouseY = 0;
 
-        TweenMax.to({}, 0.016, {
+        gsap.to({}, {
+            duration: 0.016,
             repeat: -1,
             onRepeat: function () {
                 posX += (mouseX - posX) / 3;
                 posY += (mouseY - posY) / 3;
 
-                TweenMax.set(follower, {
+                gsap.set(follower, {
                     css: {
                         left: posX - 10,
                         top: posY - 10,
                     },
                 });
 
-                TweenMax.set(cursor, {
+                gsap.set(cursor, {
                     css: {
                         left: mouseX,
                         top: mouseY,
