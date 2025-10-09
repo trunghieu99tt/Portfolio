@@ -8,7 +8,7 @@ export default function AboutMe() {
             className="aboutme introduction-item introduction-item--active"
             data="about"
         >
-            <div className="row">
+            <div className="row justify-content-between">
                 <div className="col-md-5 aboutme__image-container">
                     <div className="aboutme__image">
                         <img

@@ -42,16 +42,16 @@ $distance: -3px;
 
                 &:hover::before,
                 &:hover::after,
-                &:hover > p::before,
-                &:hover > p::after {
+                &:hover>p::before,
+                &:hover>p::after {
                     width: calc(100% / 2);
                     height: calc(100% / 2);
                 }
 
                 &::before,
                 &::after,
-                & > p::before,
-                & > p::after {
+                &>p::before,
+                &>p::after {
                     content: "";
                     position: absolute;
                     width: 10px;
@@ -116,7 +116,7 @@ $distance: -3px;
             margin-bottom: 20px;
             cursor: pointer;
             font-size: 5rem;
-            font-family: "Playfair Display", serif !important;
+            // font-family: "Playfair Display", serif !important;
 
             a {
                 color: $background-1;
