@@ -74,7 +74,7 @@ const Navigation = () => {
             <motion.li
                 className="menu-item"
                 key={`menu-item-link-${idx}`}
-                variants={menuItemVariants}
+                // variants={menuItemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
@@ -88,27 +88,25 @@ const Navigation = () => {
     return (
         <motion.section
             className={`navigation ${scrolled ? 'scrolled' : ''}`}
-            variants={containerVariants}
+            // variants={containerVariants}
             initial="hidden"
             animate="visible"
         >
             <div className="container">
                 <div className="row align-items-center">
-                    <motion.div
+                    <div
                         className="logo-wrapper"
-                        variants={logoVariants}
-                        whileHover={{ scale: 1.05 }}
                     >
                         <img
                             src="/images/logo.jpg"
                             alt="Logo"
                             className="logo"
                         />
-                    </motion.div>
+                    </div>
 
                     <motion.ul
                         className="menu"
-                        variants={menuVariants}
+                    // variants={menuVariants}
                     >
                         {menu}
                     </motion.ul>

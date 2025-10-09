@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // components
 import AboutMe from "./AboutMe";
-import Skills from "./Skills";
 import Awards from "./Awards";
 
 const Introduction = () => {
@@ -114,17 +113,17 @@ const Introduction = () => {
                 </motion.div>
 
                 <div className="introduction__content">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeIdx}
-                            variants={contentVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                        >
-                            {activeComponent}
-                        </motion.div>
-                    </AnimatePresence>
+                    {/* <AnimatePresence mode="wait"> */}
+                    <motion.div
+                        key={activeIdx}
+                    // variants={contentVariants}
+                    //      initial="hidden"
+                    // animate="visible"
+                    // exit="exit"
+                    >
+                        {activeComponent}
+                    </motion.div>
+                    {/* </AnimatePresence> */}
                 </div>
             </div>
         </motion.section>
