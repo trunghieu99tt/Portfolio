@@ -96,24 +96,20 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     });
 
     // Data fetching hooks
-    const { fetchData: fetchAwards, clearCache: clearAwardsCache } = useData({
+    const { fetchData: fetchAwards } = useData({
         endpoint: 'awards.json',
-        cacheTime: 10 * 60 * 1000, // 10 minutes
     });
 
-    const { fetchData: fetchSkills, clearCache: clearSkillsCache } = useData({
+    const { fetchData: fetchSkills } = useData({
         endpoint: 'skills.json',
-        cacheTime: 10 * 60 * 1000, // 10 minutes
     });
 
-    const { fetchData: fetchTimeline, clearCache: clearTimelineCache } = useData({
+    const { fetchData: fetchTimeline } = useData({
         endpoint: 'timeline.json',
-        cacheTime: 10 * 60 * 1000, // 10 minutes
     });
 
-    const { fetchData: fetchProjects, clearCache: clearProjectsCache } = useData({
+    const { fetchData: fetchProjects } = useData({
         endpoint: 'myprojects.json',
-        cacheTime: 10 * 60 * 1000, // 10 minutes
     });
 
     // Fetch specific data type
@@ -201,13 +197,8 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
         }
     };
 
-    // Clear all caches
+    // Clear all data
     const clearCache = () => {
-        clearAwardsCache();
-        clearSkillsCache();
-        clearTimelineCache();
-        clearProjectsCache();
-
         // Reset data states
         setAwards([]);
         setSkills([]);
