@@ -2,12 +2,11 @@
 
 import React from 'react';
 import Banner from '@/components/Banner/Banner';
-// import ChangeCursor from '@/components/ChangeCursor/ChangeCursor';
+import Blog from '@/components/Blog';
 import Contact from '@/components/Contact/Contact';
 import DataStatus from '@/components/DataStatus/DataStatus';
 import Introduction from '@/components/Introduction';
 import { LoadingWrapper } from '@/components/Loading';
-import MyProject from '@/components/MyProject';
 import ScrollBar from '@/components/ScrollBar/ScrollBar';
 import Timeline from '@/components/Timeline';
 import Footer from '@/layout/Footer';
@@ -24,12 +23,11 @@ export default function Home() {
         <LoadingWrapper>
             <DataStatus />
             <ScrollBar />
-            {/* <ChangeCursor /> */}
             {(isDesktop && <Navigation />) || <NavigationSmall />}
             <Banner />
             <Introduction />
             <Timeline />
-            <MyProject />
+            <Blog />
             <Contact />
             <Footer />
         </LoadingWrapper>

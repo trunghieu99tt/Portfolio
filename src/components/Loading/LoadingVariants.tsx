@@ -64,6 +64,10 @@ export const ProjectsLoading = memo(() => (
     <InlineLoading message="Loading projects..." />
 ));
 
+export const BlogsLoading = memo(() => (
+    <InlineLoading message="Loading blog posts..." />
+));
+
 // Set display names for debugging
 FullscreenLoading.displayName = 'FullscreenLoading';
 InlineLoading.displayName = 'InlineLoading';
@@ -74,3 +78,4 @@ AwardsLoading.displayName = 'AwardsLoading';
 SkillsLoading.displayName = 'SkillsLoading';
 TimelineLoading.displayName = 'TimelineLoading';
 ProjectsLoading.displayName = 'ProjectsLoading';
+BlogsLoading.displayName = 'BlogsLoading';
