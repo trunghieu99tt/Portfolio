@@ -4,11 +4,58 @@ $distance: -3px;
     position: sticky;
     top: 0;
     z-index: 999;
-    background-color: $background-1;
-    padding: 1rem 0;
+    background: linear-gradient(135deg,
+            rgba($background-1, 0.98) 0%,
+            rgba($background-1, 0.96) 50%,
+            rgba($background-1, 0.98) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 0;
+    transition: all 0.3s ease;
+
+    // Add subtle glow effect
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 193, 7, 0.5) 50%,
+                transparent 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    // Scrolled state
+    &.scrolled {
+        background: linear-gradient(135deg,
+                rgba($background-1, 0.99) 0%,
+                rgba($background-1, 0.97) 50%,
+                rgba($background-1, 0.99) 100%);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-bottom-color: rgba(255, 193, 7, 0.15);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.15),
+            0 0 20px rgba(255, 193, 7, 0.05);
+
+        &::before {
+            opacity: 1;
+        }
+    }
 
     .logo-wrapper {
         width: 10%;
+        position: relative;
 
         @include respond(phone) {
             margin: 0 auto;
@@ -21,6 +68,20 @@ $distance: -3px;
         height: $size;
         object-fit: cover;
         border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 193, 7, 0.3);
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                0 0 20px rgba(255, 193, 7, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
     }
 
     .menu {
@@ -30,26 +91,37 @@ $distance: -3px;
         justify-content: space-around;
         padding: 1rem;
 
+        @include respond(tab-port) {
+            width: 60%;
+            gap: 1rem;
+        }
+
         @include respond(phone) {
             width: 100%;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
         }
 
         &-item {
             &__link {
                 position: relative;
                 display: block;
-                background: $background-1;
+                background: transparent;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
                 &:hover {
                     text-decoration: none;
+                    transform: translateY(-2px);
                 }
 
                 &:hover::before,
                 &:hover::after,
                 &:hover>p::before,
                 &:hover>p::after {
-                    width: calc(100% / 2);
-                    height: calc(100% / 2);
+                    width: 100%;
+                    background: linear-gradient(135deg, $orange-1, $orange-2);
+                    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
                 }
 
                 &::before,
@@ -58,11 +130,15 @@ $distance: -3px;
                 &>p::after {
                     content: "";
                     position: absolute;
-                    width: 10px;
-                    height: 10px;
-                    background-color: $orange-1;
-                    transition: 0.25s;
-                    z-index: -1;
+                    width: 12px;
+                    height: 5px;
+                    background: linear-gradient(135deg,
+                            rgba(255, 193, 7, 0.6) 0%,
+                            rgba(255, 193, 7, 0.4) 100%);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    z-index: 1;
+                    border-radius: 2px;
+                    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
                 }
 
                 &::before {
@@ -76,9 +152,24 @@ $distance: -3px;
                 }
 
                 p {
-                    transition: 0.4s;
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                     position: relative;
-                    padding: 0.6rem;
+                    padding: 0.8rem 1rem;
+                    font-weight: 600;
+                    font-size: 1.4rem;
+                    letter-spacing: 0.5px;
+                    color: rgba(255, 255, 255, 0.9);
+                    z-index: 2;
+
+                    @include respond(tab-port) {
+                        font-size: 1.2rem;
+                        padding: 0.6rem 0.8rem;
+                    }
+
+                    @include respond(phone) {
+                        font-size: 1rem;
+                        padding: 0.5rem 0.6rem;
+                    }
 
                     &::before {
                         bottom: $distance;
@@ -92,7 +183,8 @@ $distance: -3px;
                 }
 
                 &:hover p {
-                    color: $orange-1;
+                    color: $orange-2;
+                    text-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
                 }
             }
         }
