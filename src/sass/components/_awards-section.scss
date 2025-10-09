@@ -1,0 +1,147 @@
+// Awards Section Specific Styles
+.awards {
+    &.introduction-item {
+        &.introduction-item--active {
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+            @include respond(tab-port) {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2.5rem;
+                padding: 3rem;
+            }
+
+            @include respond(phone) {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+            }
+        }
+    }
+}
+
+// Skills Section Specific Styles  
+.skills {
+    &.introduction-item {
+        &.introduction-item--active {
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+            @include respond(tab-port) {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1.5rem;
+                padding: 3rem;
+            }
+
+            @include respond(phone) {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+                padding: 2rem;
+            }
+        }
+    }
+
+    .skill-item {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        &:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-color: rgba(255, 193, 7, 0.3);
+            color: $orange-2;
+            box-shadow:
+                0 12px 32px rgba(0, 0, 0, 0.15),
+                0 0 20px rgba(255, 193, 7, 0.2);
+
+            &::before {
+                left: 100%;
+            }
+        }
+
+        @include respond(phone) {
+            font-size: 1.3rem;
+            padding: 1.2rem 1.5rem;
+        }
+    }
+}
+
+// Loading and Error States
+.loading-placeholder,
+.error-message,
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(255, 193, 7, 0.3);
+        border-top: 3px solid $orange-2;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+}
+
+.error-message::before {
+    content: '⚠️';
+    border: none;
+    animation: none;
+    font-size: 2rem;
+}
+
+.empty-message::before {
+    content: '📭';
+    border: none;
+    animation: none;
+    font-size: 2rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

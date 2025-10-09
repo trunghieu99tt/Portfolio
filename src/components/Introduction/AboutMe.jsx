@@ -34,15 +34,6 @@ export default function AboutMe() {
                             which challenge myself.
                         </p>
                     </div>
-
-                    <a
-                        href={process.env.MY_CV_URL}
-                        className="button"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        My CV
-                    </a>
                 </div>
             </div>
         </div>
