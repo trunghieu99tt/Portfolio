@@ -10,6 +10,8 @@ import { useData } from "../../talons/useData";
 import TimeLineCard1 from "../Cards/TimeLineCard1";
 import TimelineCard2 from "../Cards/TimelineCard2";
 
+const SliderCustom: any = Slider;
+
 const TimeLine = () => {
     const [data, setData] = useState<any>(null);
 
@@ -27,6 +29,14 @@ const TimeLine = () => {
     }, [getTimeline]);
 
     const sortedData = data?.sort((a: any, b: any) => a.order - b.order);
+
+    const settings = {
+        vertical: true,
+        verticalSwiping: true,
+        draggable: true,
+        slidesToScroll: 1,
+        centerMode: false,
+    };
 
 
     return (
@@ -57,16 +67,7 @@ const TimeLine = () => {
                     </div>
 
                     <div className="col-lg-6">
-                        <Slider
-                            vertical={true}
-                            verticalSwiping={true}
-                            draggable={true}
-                            slidesToScroll={1}
-                            centerMode={false}
-                            infinite={true}
-                            speed={1000}
-                        // autoplay={true}
-                        // nextArrow={`<button class = "timeline-next"></button>`}
+                        <SliderCustom {...settings}
                         >
                             {sortedData &&
                                 sortedData.length > 0 &&
@@ -76,7 +77,7 @@ const TimeLine = () => {
                                         key={`timeline-card2-${idx}`}
                                     />
                                 ))}
-                        </Slider>
+                        </SliderCustom>
                     </div>
                 </div>
             </div>

@@ -48,7 +48,6 @@ const MyProjectsv1 = () => {
 
     const getProjects = useCallback(async () => {
         const response = await fetchData();
-        console.log("response", response);
         setData(response);
     }, [fetchData]);
 
