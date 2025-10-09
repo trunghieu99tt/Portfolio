@@ -1,7 +1,6 @@
 'use client';
 
 import React, { memo } from "react";
-import { motion } from "framer-motion";
 import { useDataContext } from "@/contexts/DataContext";
 import BlogCard from "../Cards/BlogCard";
 import { BlogsLoading } from "../Loading";
@@ -9,29 +8,11 @@ import { BlogsLoading } from "../Loading";
 const Blog = memo(() => {
     const { blogs, loading, errors } = useDataContext();
 
-    const headingVariants = {
-        hidden: { opacity: 0, y: -20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 15
-            }
-        }
-    };
 
     return (
         <section className="blog" id="blog">
             <div className="container">
-                <motion.div
-                    className="blog__heading"
-                    variants={headingVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                >
+                <div className="section-heading-container">
                     <div className="text-wrapper">
                         <h3 className="section-subheading">My Blog</h3>
                     </div>
@@ -40,7 +21,7 @@ const Blog = memo(() => {
                             Latest Articles & Insights
                         </h2>
                     </div>
-                </motion.div>
+                </div>
 
                 {loading.blogs ? (
                     <div className="blog__loading">

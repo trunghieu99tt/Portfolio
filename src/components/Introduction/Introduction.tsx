@@ -14,20 +14,16 @@ const Introduction = () => {
 
     const headers = [
         {
-            name: "About me",
+            name: "Certifications",
         },
         {
             name: "Awards",
         },
-        {
-            name: "Certifications",
-        }
     ];
 
     const activeComponent = [
-        <AboutMe />,
-        <Awards />,
         <Certifications />,
+        <Awards />,
     ][activeIdx];
 
     // Animation variants

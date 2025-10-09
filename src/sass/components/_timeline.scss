@@ -1,6 +1,8 @@
 .timeline {
-	margin-top: 8rem;
 	position: relative;
+	background: $background-1;
+	padding: 8rem 0;
+	margin-top: 8rem;
 
 	// Add subtle background pattern
 	&::before {

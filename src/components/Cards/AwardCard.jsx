@@ -17,7 +17,7 @@ const AwardCard = (props) => {
 
             <div className="award-card__content">
                 <div className="text-wrapper">
-                    <a href={url}>
+                    <a href={url} target="_blank" rel="noopener noreferrer">
                         <h2 className="award-card__title">{title}</h2>
                     </a>
                 </div>

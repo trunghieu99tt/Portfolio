@@ -33,6 +33,12 @@ export default function RootLayout({
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous' />
                 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content="Personal portfolio website of Trung Hieu (Elliot) Nguyen - Software Engineer" />
+                <meta name="author" content="Trung Hieu (Elliot) Nguyen" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta name="robots" content="index, follow" />
+                <meta name="googlebot" content="index, follow" />
             </head>
             <body>
                 <DataProvider>
