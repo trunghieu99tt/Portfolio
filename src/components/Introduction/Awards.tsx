@@ -1,38 +1,46 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+'use client';
 
-// utils
-import client from "../../client";
-import { useData } from "../../talons/useData";
-
-// components
+import React, { memo } from "react";
+import { useDataContext } from "../../contexts/DataContext";
+import { AwardsLoading } from "../loading";
 import AwardCard from "../Cards/AwardCard";
 
-const Awards = () => {
-    const [data, setData] = useState<any>([]);
+const Awards = memo(() => {
+    const { awards, loading, errors } = useDataContext();
 
-    const { fetchData } = useData({
-        endpoint: "awards.json",
-    });
+    if (loading.awards) {
+        return (
+            <div className="awards introduction-item introduction-item--active grid grid--2">
+                <AwardsLoading />
+            </div>
+        );
+    }
 
-    const getAwards = async () => {
-        const response = await fetchData();
-        setData(response);
-    };
+    if (errors.awards) {
+        return (
+            <div className="awards introduction-item introduction-item--active grid grid--2">
+                <div className="error-message">{errors.awards}</div>
+            </div>
+        );
+    }
 
-    useEffect(() => {
-        getAwards();
-    }, []);
+    if (!awards || awards.length === 0) {
+        return (
+            <div className="awards introduction-item introduction-item--active grid grid--2">
+                <div className="empty-message">No awards to display</div>
+            </div>
+        );
+    }
 
     return (
         <div className="awards introduction-item introduction-item--active grid grid--2">
-            {data &&
-                data.length > 0 &&
-                data.map((item: any, idx: number) => {
-                    return <AwardCard {...item} key={`award-card-${idx}`} />;
-                })}
+            {awards.map((item, idx) => (
+                <AwardCard {...item} key={item.title || `award-card-${idx}`} />
+            ))}
         </div>
     );
-};
+});
+
+Awards.displayName = 'Awards';
 
 export default Awards;

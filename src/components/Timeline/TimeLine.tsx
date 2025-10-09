@@ -1,35 +1,21 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { memo } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 
-// talons
-import { useData } from "../../talons/useData";
+// context
+import { useDataContext } from "../../contexts/DataContext";
 
 // components
+import { TimelineLoading } from "../loading";
 import TimeLineCard1 from "../Cards/TimeLineCard1";
 import TimelineCard2 from "../Cards/TimelineCard2";
 
 const SliderCustom: any = Slider; // Alias to bypass TypeScript error
 
-const TimeLine = () => {
-    const [data, setData] = useState<any>(null);
-
-    const { fetchData } = useData({
-        endpoint: "timeline.json",
-    });
-
-    const getTimeline = useCallback(async () => {
-        const response = await fetchData();
-        setData(response);
-    }, [fetchData]);
-
-    useEffect(() => {
-        getTimeline();
-    }, [getTimeline]);
-
-    const sortedData = data?.sort((a: any, b: any) => a.order - b.order);
+const TimeLine = memo(() => {
+    const { timeline, loading, errors } = useDataContext();
 
     const headingVariants = {
         hidden: { opacity: 0, y: -20 },
@@ -64,34 +50,52 @@ const TimeLine = () => {
                         </h2>
                     </div>
                 </motion.div>
-                <section className="row justify-content-between">
-                    <div className="col-lg-5">
-                        <div className="timeline-cards">
-                            {sortedData &&
-                                sortedData.length > 0 &&
-                                sortedData.map((item: any, idx: number) => (
+                {loading.timeline ? (
+                    <div className="row justify-content-center">
+                        <div className="col-12">
+                            <TimelineLoading />
+                        </div>
+                    </div>
+                ) : errors.timeline ? (
+                    <div className="row justify-content-center">
+                        <div className="col-12 text-center">
+                            <div className="error-message">{errors.timeline}</div>
+                        </div>
+                    </div>
+                ) : !timeline || timeline.length === 0 ? (
+                    <div className="row justify-content-center">
+                        <div className="col-12 text-center">
+                            <div className="empty-message">No timeline data available</div>
+                        </div>
+                    </div>
+                ) : (
+                    <section className="row justify-content-between">
+                        <div className="col-lg-5">
+                            <div className="timeline-cards">
+                                {timeline.map((item, idx) => (
                                     <TimeLineCard1
                                         data={item}
                                         key={`timeline-card1-${idx}`}
                                     />
                                 ))}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="col-lg-6">
-                        {sortedData &&
-                            sortedData.length > 0 &&
-                            sortedData.map((item: any, idx: number) => (
+                        <div className="col-lg-6">
+                            {timeline.map((item, idx) => (
                                 <TimelineCard2
                                     data={item}
                                     key={`timeline-card2-${idx}`}
                                 />
                             ))}
-                    </div>
-                </section>
+                        </div>
+                    </section>
+                )}
             </div>
-        </section >
+        </section>
     );
-};
+});
+
+TimeLine.displayName = 'TimeLine';
 
 export default TimeLine;

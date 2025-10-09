@@ -4,7 +4,9 @@ import React from 'react';
 import Banner from '@/components/Banner/Banner';
 // import ChangeCursor from '@/components/ChangeCursor/ChangeCursor';
 import Contact from '@/components/Contact/Contact';
+import DataStatus from '@/components/DataStatus/DataStatus';
 import Introduction from '@/components/Introduction';
+import { LoadingWrapper } from '@/components/loading';
 import MyProject from '@/components/MyProject';
 import ScrollBar from '@/components/ScrollBar/ScrollBar';
 import Timeline from '@/components/Timeline';
@@ -19,7 +21,8 @@ export default function Home() {
     const isDesktop = width >= 1200;
 
     return (
-        <React.Fragment>
+        <LoadingWrapper>
+            <DataStatus />
             <ScrollBar />
             {/* <ChangeCursor /> */}
             {(isDesktop && <Navigation />) || <NavigationSmall />}
@@ -29,7 +32,7 @@ export default function Home() {
             <MyProject />
             <Contact />
             <Footer />
-        </React.Fragment>
+        </LoadingWrapper>
     );
 }
 

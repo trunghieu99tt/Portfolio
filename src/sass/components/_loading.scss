@@ -1,0 +1,291 @@
+// Loading Component Styles
+.loading {
+    &--fullscreen {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        z-index: 9999;
+        background: linear-gradient(135deg,
+                rgba($background-1, 0.98) 0%,
+                rgba($background-1, 0.95) 100%);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .loading__message {
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+
+    &--inline {
+        width: 100%;
+        padding: 3rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 12px;
+        background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.05) 0%,
+                transparent 100%);
+        border: 2px solid rgba(255, 193, 7, 0.2);
+
+        .loading__message {
+            margin-top: 1.5rem;
+            color: rgba(255, 193, 7, 0.8);
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+
+    &--skeleton {
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .loading__message {
+            margin-left: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+    }
+
+    &__svg {
+        width: 0;
+        height: 0;
+    }
+
+    &__loader {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        filter: url(#gooey);
+
+        &--small {
+            width: 80px;
+            height: 80px;
+        }
+
+        &--large {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    &__span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        animation: loadingRotate 3s ease-in-out infinite;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: calc(50% - 20px);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 193, 7, 0.6);
+            background: linear-gradient(135deg, $orange-1, $orange-2);
+            transition: all 0.3s ease;
+        }
+
+        &:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        &:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        &:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+
+        &:nth-child(7) {
+            animation-delay: 1.4s;
+        }
+    }
+
+    &__dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        &--dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, $orange-1, $orange-2);
+            animation: loadingBounce 1.4s ease-in-out infinite both;
+
+            &:nth-child(1) {
+                animation-delay: -0.32s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: -0.16s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0s;
+            }
+        }
+    }
+
+    &__spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-left: 4px solid $orange-1;
+        border-radius: 50%;
+        animation: loadingSpin 1s linear infinite;
+    }
+
+    &__pulse {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, $orange-1, $orange-2);
+        animation: loadingPulse 2s ease-in-out infinite;
+    }
+}
+
+// Animations
+@keyframes loadingRotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    50%,
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loadingBounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes loadingSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loadingPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+// Responsive adjustments
+@include respond(tab-port) {
+    .loading {
+        &__loader {
+            width: 100px;
+            height: 100px;
+
+            &--small {
+                width: 60px;
+                height: 60px;
+            }
+
+            &--large {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        &--inline .loading__message {
+            font-size: 1.2rem;
+        }
+
+        &--fullscreen .loading__message {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@include respond(phone) {
+    .loading {
+        &__loader {
+            width: 80px;
+            height: 80px;
+
+            &--small {
+                width: 50px;
+                height: 50px;
+            }
+
+            &--large {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        &--inline .loading__message {
+            font-size: 1rem;
+        }
+
+        &--fullscreen .loading__message {
+            font-size: 1.2rem;
+        }
+    }
+}
