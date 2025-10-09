@@ -17,9 +17,9 @@ interface SkillData {
 interface TimelineData {
     title: string;
     description: string;
-    timeRange: string;
     companyName: string;
-    session: string;
+    timeStart: string;
+    timeEnd: string;
     image: string;
     order: number;
 }
@@ -112,7 +112,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     });
 
     const { fetchData: fetchProjects, clearCache: clearProjectsCache } = useData({
-        endpoint: 'projects.json',
+        endpoint: 'myprojects.json',
         cacheTime: 10 * 60 * 1000, // 10 minutes
     });
 
