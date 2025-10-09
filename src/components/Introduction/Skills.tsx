@@ -2,7 +2,7 @@
 
 import React, { memo } from "react";
 import { useDataContext } from "../../contexts/DataContext";
-import { SkillsLoading } from "../loading";
+import { SkillsLoading } from "../Loading";
 
 const Skills = memo(() => {
     const { skills, loading, errors } = useDataContext();

@@ -2,7 +2,7 @@
 
 import React, { memo } from "react";
 import { useDataContext } from "../../contexts/DataContext";
-import { AwardsLoading } from "../loading";
+import { AwardsLoading } from "../Loading";
 import AwardCard from "../Cards/AwardCard";
 
 const Awards = memo(() => {

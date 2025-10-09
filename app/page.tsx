@@ -6,7 +6,7 @@ import Banner from '@/components/Banner/Banner';
 import Contact from '@/components/Contact/Contact';
 import DataStatus from '@/components/DataStatus/DataStatus';
 import Introduction from '@/components/Introduction';
-import { LoadingWrapper } from '@/components/loading';
+import { LoadingWrapper } from '@/components/Loading';
 import MyProject from '@/components/MyProject';
 import ScrollBar from '@/components/ScrollBar/ScrollBar';
 import Timeline from '@/components/Timeline';

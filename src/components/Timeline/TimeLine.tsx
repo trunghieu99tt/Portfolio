@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { useDataContext } from "../../contexts/DataContext";
 
 // components
-import { TimelineLoading } from "../loading";
+import { TimelineLoading } from "../Loading";
 import TimeLineCard1 from "../Cards/TimeLineCard1";
 import TimelineCard2 from "../Cards/TimelineCard2";
 
