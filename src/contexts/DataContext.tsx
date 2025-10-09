@@ -45,6 +45,17 @@ interface BlogData {
     url: string;
 }
 
+interface CertificationData {
+    id: string;
+    title: string;
+    issuer: string;
+    date: string;
+    credentialId?: string;
+    credentialUrl?: string;
+    image: string;
+    skills: string[];
+}
+
 interface DataContextType {
     // Data
     awards: AwardData[];
@@ -52,6 +63,7 @@ interface DataContextType {
     timeline: TimelineData[];
     projects: ProjectData[];
     blogs: BlogData[];
+    certifications: CertificationData[];
 
     // Loading states
     loading: {
@@ -60,6 +72,7 @@ interface DataContextType {
         timeline: boolean;
         projects: boolean;
         blogs: boolean;
+        certifications: boolean;
     };
 
     // Initial loading state
@@ -72,6 +85,7 @@ interface DataContextType {
         timeline: string | null;
         projects: string | null;
         blogs: string | null;
+        certifications: string | null;
     };
 
     // Actions
@@ -92,6 +106,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     const [timeline, setTimeline] = useState<TimelineData[]>([]);
     const [projects, setProjects] = useState<ProjectData[]>([]);
     const [blogs, setBlogs] = useState<BlogData[]>([]);
+    const [certifications, setCertifications] = useState<CertificationData[]>([]);
 
     // Loading states
     const [loading, setLoading] = useState({
@@ -100,6 +115,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
         timeline: false,
         projects: false,
         blogs: false,
+        certifications: false,
     });
 
     // Initial loading state for app startup
@@ -112,6 +128,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
         timeline: null as string | null,
         projects: null as string | null,
         blogs: null as string | null,
+        certifications: null as string | null,
     });
 
     // Data fetching hooks
@@ -133,6 +150,10 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
 
     const { fetchData: fetchBlogs } = useData({
         endpoint: 'blogs.json',
+    });
+
+    const { fetchData: fetchCertifications } = useData({
+        endpoint: 'certifications.json',
     });
 
     // Fetch specific data type
@@ -178,6 +199,14 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
                     );
                     setBlogs(sortedBlogs);
                     break;
+                case 'certifications':
+                    data = await fetchCertifications();
+                    // Sort certifications by date (newest first)
+                    const sortedCertifications = data.sort((a: CertificationData, b: CertificationData) =>
+                        new Date(b.date).getTime() - new Date(a.date).getTime()
+                    );
+                    setCertifications(sortedCertifications);
+                    break;
                 default:
                     console.warn(`Unknown data type: ${dataType}`);
             }
@@ -202,6 +231,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
                     fetchDataByType('timeline'),
                     fetchDataByType('projects'),
                     fetchDataByType('blogs'),
+                    fetchDataByType('certifications'),
                 ]);
             } finally {
                 // Hide initial loading screen after all data is fetched
@@ -226,6 +256,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
                 fetchDataByType('timeline'),
                 fetchDataByType('projects'),
                 fetchDataByType('blogs'),
+                fetchDataByType('certifications'),
             ]);
         }
     };
@@ -238,6 +269,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
         setTimeline([]);
         setProjects([]);
         setBlogs([]);
+        setCertifications([]);
 
         // Reset error states
         setErrors({
@@ -246,6 +278,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
             timeline: null,
             projects: null,
             blogs: null,
+            certifications: null,
         });
     };
 
@@ -256,6 +289,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
         timeline,
         projects,
         blogs,
+        certifications,
 
         // Loading states
         loading,
@@ -286,4 +320,4 @@ export const useDataContext = (): DataContextType => {
 };
 
 // Export types for use in components
-export type { AwardData, SkillData, TimelineData, ProjectData, BlogData };
+export type { AwardData, SkillData, TimelineData, ProjectData, BlogData, CertificationData };

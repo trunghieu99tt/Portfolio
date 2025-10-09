@@ -12,6 +12,7 @@ canvas {
 	display: flex;
 	align-items: center;
 	position: relative;
+	padding-top: 12rem; // Account for fixed navigation
 	background: linear-gradient(135deg,
 			rgba($background-1, 0.95) 0%,
 			rgba($background-1, 0.9) 50%,

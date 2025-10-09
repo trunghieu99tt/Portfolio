@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // components
 import AboutMe from "./AboutMe";
 import Awards from "./Awards";
+import Certifications from "./Certifications";
 
 const Introduction = () => {
     const [activeIdx, setActiveIdx] = useState<number>(0);
@@ -18,12 +19,15 @@ const Introduction = () => {
         {
             name: "Awards",
         },
+        {
+            name: "Certifications",
+        }
     ];
 
     const activeComponent = [
         <AboutMe />,
-        // <Skills key={Math.random()} />,
         <Awards />,
+        <Certifications />,
     ][activeIdx];
 
     // Animation variants

@@ -1,0 +1,175 @@
+.certification-card {
+    background: $background-2;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+        .certification-card__image {
+            transform: scale(1.05);
+        }
+
+        .certification-card__verify {
+            color: $orange-1;
+
+            svg {
+                transform: translateX(5px);
+            }
+        }
+    }
+
+    &__image-container {
+        position: relative;
+        width: 100%;
+        height: 20rem;
+        overflow: hidden;
+        background: $background-3;
+
+        @include respond(phone) {
+            height: 16rem;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 2rem;
+        background: #fff;
+        transition: transform 0.5s ease;
+    }
+
+    &__content {
+        padding: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        @include respond(phone) {
+            padding: 1.5rem;
+        }
+    }
+
+    &__meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    &__issuer {
+        color: $orange-1;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    &__date {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 500;
+    }
+
+    &__title {
+        font-size: 1.8rem;
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        @include respond(phone) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__credential {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        margin-bottom: 1.2rem;
+        padding: 0.8rem;
+        background: rgba($orange-1, 0.1);
+        border-radius: 6px;
+        border-left: 3px solid $orange-1;
+    }
+
+    &__credential-label {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+    }
+
+    &__credential-id {
+        font-size: 1.2rem;
+        color: $orange-1;
+        font-weight: 600;
+        font-family: 'Source Code Pro', monospace;
+    }
+
+    &__skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+        flex-grow: 1;
+    }
+
+    &__skill {
+        padding: 0.4rem 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba($orange-1, 0.2);
+            border-color: $orange-1;
+            color: $orange-1;
+        }
+    }
+
+    &__footer {
+        padding-top: 1.2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    &__verify {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0.6rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            background: rgba($orange-1, 0.1);
+            text-decoration: none;
+            color: $orange-1;
+        }
+    }
+}
