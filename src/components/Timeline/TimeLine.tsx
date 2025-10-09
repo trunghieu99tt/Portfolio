@@ -36,6 +36,7 @@ const TimeLine = () => {
         draggable: true,
         slidesToScroll: 1,
         centerMode: false,
+        autoplay: true,
     };
 
 

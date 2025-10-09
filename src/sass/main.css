@@ -386,7 +386,7 @@ span {
 .navigation {
   position: sticky;
   top: 0;
-  background: #1f2235;
+  /* background: #1f2235; */
   z-index: 999;
 }
 
@@ -420,7 +420,7 @@ span {
 .navigation .menu-item__link {
   position: relative;
   display: block;
-  background: #1f2235;
+  background: #313552;
 }
 
 .navigation .menu-item__link:hover {
@@ -1296,7 +1296,7 @@ canvas {
 }
 
 .award-card__title {
-  font-family: "Playfair Display", serif !important;
+  color: #fff;
   margin-bottom: 2rem;
 }
 

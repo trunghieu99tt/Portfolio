@@ -6,29 +6,10 @@ const Footer = () => {
     return (
         <footer className="footer" id="footer">
             <div className="container">
-                <div className="footer-top grid grid--3">
-                    <div className="footer-logo-container">
-                        <img
-                            src="/images/logo.png"
-                            alt=""
-                            className="footer-logo"
-                        />
-                    </div>
-                    <div className="d-flex align-items-center justify-content-cente footer-link-heading-container">
-                        <h1 className="footer-link-heading">Let's Talk</h1>
-                    </div>
-
-                    {/* <div className="d-flex align-items-center">
-                        <a
-                            href="https://www.facebook.com/rikikudo99"
-                            className="button button--2 ml-auto"
-                        >
-                            Let's chat
-                        </a>
-                    </div> */}
+                <div className="footer-top flex justify-content-between">
                     <div className="footer-link-container">
                         <p className="footer-copy-right">
-                            Copyright By@Hieu Nguyen - {new Date().getFullYear()}
+                            Copyright By @Hieu Nguyen - {new Date().getFullYear()}
                         </p>
                     </div>
                 </div>

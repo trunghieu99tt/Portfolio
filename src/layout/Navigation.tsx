@@ -21,7 +21,7 @@ const Navigation = () => {
                 <div className="row align-items-center">
                     <div className="logo-wrapper">
                         <img
-                            src="/images/logo.png"
+                            src="/images/logo.jpg"
                             alt="Logo"
                             className="logo"
                         />

@@ -16,16 +16,13 @@ const Introduction = () => {
             name: "About me",
         },
         {
-            name: "Skills",
-        },
-        {
             name: "Awards",
         },
     ];
 
     const activeComponent = [
         <AboutMe />,
-        <Skills key={Math.random()} />,
+        // <Skills key={Math.random()} />,
         <Awards />,
     ][activeIdx];
 

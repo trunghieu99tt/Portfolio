@@ -3,10 +3,13 @@ $distance: -3px;
 .navigation {
     position: sticky;
     top: 0;
-    background: $background-1;
     z-index: 999;
+    background-color: $background-1;
+    padding: 1rem 0;
 
     .logo-wrapper {
+        width: 10%;
+
         @include respond(phone) {
             margin: 0 auto;
         }
@@ -17,6 +20,7 @@ $distance: -3px;
         width: $size;
         height: $size;
         object-fit: cover;
+        border-radius: 50%;
     }
 
     .menu {
@@ -57,7 +61,7 @@ $distance: -3px;
                     width: 10px;
                     height: 10px;
                     background-color: $orange-1;
-                    transition: 0.5s;
+                    transition: 0.25s;
                     z-index: -1;
                 }
 
