@@ -11,7 +11,6 @@
 	box-sizing: inherit;
 	scroll-behavior: smooth;
 	color: #fff;
-	// cursor: none !important;
 }
 
 html {
@@ -30,7 +29,8 @@ html {
 		font-size: 50%; // 1rem = 8px
 	}
 
-	font-family: "Open Sans", sans-serif;
+	font-family: "Open Sans",
+	sans-serif;
 }
 
 body {
@@ -66,9 +66,11 @@ a {
 	@include respond(phone) {
 		margin-left: 31%;
 	}
+
 	@media (max-width: 415px) {
 		margin-left: 27%;
 	}
+
 	@media (max-width: 380px) {
 		margin-left: 31%;
 	}

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Banner from '@/components/Banner/Banner';
-import ChangeCursor from '@/components/ChangeCursor/ChangeCursor';
+// import ChangeCursor from '@/components/ChangeCursor/ChangeCursor';
 import Contact from '@/components/Contact/Contact';
 import Introduction from '@/components/Introduction';
 import MyProject from '@/components/MyProject';
@@ -21,7 +21,7 @@ export default function Home() {
     return (
         <React.Fragment>
             <ScrollBar />
-            <ChangeCursor />
+            {/* <ChangeCursor /> */}
             {(isDesktop && <Navigation />) || <NavigationSmall />}
             <Banner />
             <Introduction />

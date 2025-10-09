@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
 
 // talons
 import { useData } from "../../talons/useData";
@@ -10,7 +11,7 @@ import { useData } from "../../talons/useData";
 import TimeLineCard1 from "../Cards/TimeLineCard1";
 import TimelineCard2 from "../Cards/TimelineCard2";
 
-const SliderCustom: any = Slider;
+const SliderCustom: any = Slider; // Alias to bypass TypeScript error
 
 const TimeLine = () => {
     const [data, setData] = useState<any>(null);
@@ -30,20 +31,30 @@ const TimeLine = () => {
 
     const sortedData = data?.sort((a: any, b: any) => a.order - b.order);
 
-    const settings = {
-        vertical: true,
-        verticalSwiping: true,
-        draggable: true,
-        slidesToScroll: 1,
-        centerMode: false,
-        autoplay: true,
+    const headingVariants = {
+        hidden: { opacity: 0, y: -20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+            }
+        }
     };
 
 
     return (
         <section className="timeline" id="timeline">
             <div className="container">
-                <div className="timeline__heading">
+                <motion.div
+                    className="timeline__heading"
+                    variants={headingVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                     <div className="text-wrapper">
                         <h3 className="section-subheading">My experience</h3>
                     </div>
@@ -52,9 +63,9 @@ const TimeLine = () => {
                             My Education, Experiences And Events
                         </h2>
                     </div>
-                </div>
-                <div className="row align-items-center">
-                    <div className="col-lg-6">
+                </motion.div>
+                <section className="row justify-content-between">
+                    <div className="col-lg-5">
                         <div className="timeline-cards">
                             {sortedData &&
                                 sortedData.length > 0 &&
@@ -68,21 +79,18 @@ const TimeLine = () => {
                     </div>
 
                     <div className="col-lg-6">
-                        <SliderCustom {...settings}
-                        >
-                            {sortedData &&
-                                sortedData.length > 0 &&
-                                sortedData.map((item: any, idx: number) => (
-                                    <TimelineCard2
-                                        data={item}
-                                        key={`timeline-card2-${idx}`}
-                                    />
-                                ))}
-                        </SliderCustom>
+                        {sortedData &&
+                            sortedData.length > 0 &&
+                            sortedData.map((item: any, idx: number) => (
+                                <TimelineCard2
+                                    data={item}
+                                    key={`timeline-card2-${idx}`}
+                                />
+                            ))}
                     </div>
-                </div>
+                </section>
             </div>
-        </section>
+        </section >
     );
 };
 

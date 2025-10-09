@@ -1,12 +1,28 @@
+'use client';
+
 import React from "react";
 
+interface TimelineData {
+    image?: string;
+    companyName: string;
+    timeStart: string;
+    timeEnd: string;
+    title: string;
+}
+
 type Props = {
-    data: any;
+    data: TimelineData;
 };
 
 const TimeLineCard1 = ({ data }: Props) => {
     const { image, companyName, timeStart, timeEnd, title } = data;
-    return image ? (
+
+    // Only render if image exists
+    if (!image) {
+        return null;
+    }
+
+    return (
         <div className="timeline-card1">
             <div className="timeline-card1__image-container">
                 <img
@@ -31,7 +47,7 @@ const TimeLineCard1 = ({ data }: Props) => {
                 </div>
             </div>
         </div>
-    ) : null;
+    );
 };
 
 export default TimeLineCard1;
