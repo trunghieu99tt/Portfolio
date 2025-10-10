@@ -36,15 +36,30 @@ const Blog = memo(() => {
                         <div className="empty-message">No blog posts available</div>
                     </div>
                 ) : (
-                    <div className="blog__grid">
-                        {blogs.map((blog, index) => (
-                            <BlogCard
-                                key={blog.id}
-                                blog={blog}
-                                index={index}
-                            />
-                        ))}
-                    </div>
+                    <>
+                        <div className="blog__grid">
+                            {blogs.map((blog, index) => (
+                                <BlogCard
+                                    key={blog.id}
+                                    blog={blog}
+                                    index={index}
+                                />
+                            ))}
+                        </div>
+                        <div className="blog__cta">
+                            <a
+                                href="https://blog.hieunt.me"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="blog__read-more-btn"
+                            >
+                                View All Articles
+                                <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                                    <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </>
                 )}
             </div>
         </section>
